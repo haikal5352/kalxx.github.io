@@ -1,26 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio saya</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portofolio Haikal Aditama</title>
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Alpine.js -->
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <!-- AOS CSS for scroll animations -->
+  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    /* Custom keyframes untuk fade-in dan naik perlahan */
+    @keyframes fadeInUpModern {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      60% {
+        opacity: 1;
+        transform: translateY(-5px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .animate-text {
+      animation: fadeInUpModern 1.2s ease-out forwards;
+    }
+    /* Animasi umum untuk fade in konten */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .animate-fade {
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+    /* Futuristik background dengan gradasi */
+    .bg-futuristic {
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    }
+    section {
+      opacity: 0;
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    section.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </head>
-<body class="bg-gray-100">
-
+<body class="bg-futuristic text-white">
     <!-- Navigasi -->
-     <nav class="bg-blue-600 text-white p-4">
-        <div class="container mx-auto flex justify-between itens-center">
-            <a href="#" class="text-2x1 font-bold">Solo Leveling</a>
-            <ul class="flex space-x-6">
-                <li><a href="#Tentang-saya" class="hover:underline">Tentang saya</a></li>
-                <li><a href="#Proyek-saya" class="hover:underline">Proyek saya</a></li>
-                <li><a href="#Kontak-saya" class="hover:underline">Kontak saya</a></li>
-            </ul>
+    <nav class="bg-blue-800 bg-opacity-75 backdrop-filter backdrop-blur-lg p-4 fixed w-full z-10">
+      <div class="container mx-auto flex justify-between items-center">
+        <a href="#" class="text-2xl font-bold transition-all hover:scale-105">Haikal Aditama</a>
+        <ul class="hidden md:flex space-x-6">
+          <li><a href="#about" class="hover:underline transition-all hover:text-blue-300">Tentang Saya</a></li>
+          <li><a href="#projects" class="hover:underline transition-all hover:text-blue-300">Proyek Saya</a></li>
+          <li><a href="#contact" class="hover:underline transition-all hover:text-blue-300">Kontak</a></li>
+        </ul>
+        <!-- Tombol menu mobile -->
+        <div class="md:hidden" x-data="{ open: false }">
+          <button @click="open = !open" class="focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path x-show="!open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"/>
+              <path x-show="open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+          <div x-show="open" x-transition class="mt-2 space-y-2">
+            <a href="#about" class="block hover:underline transition-all hover:text-blue-300">Tentang Saya</a>
+            <a href="#projects" class="block hover:underline transition-all hover:text-blue-300">Proyek Saya</a>
+            <a href="#contact" class="block hover:underline transition-all hover:text-blue-300">Kontak</a>
+          </div>
         </div>
-     </nav>
-
+      </div>
+    </nav>
      <!-- <header class="bg-blue-600 text-white p-5">
           <h1 class="text-3x1 font-blod text-center">Portofolio Saya</h1>
     <header> -->
@@ -28,8 +95,8 @@
     <main class="container mx-auto p-5">
         <!--Tentang Saya-->
         <section id="Tentang-saya" class="my-10 text-center">
-            <h2 class="text-2xl font-semibold mb-5">Tentang Saya</h2>
-            <img src="https://i.imgur.com/8Q6QX6B.jpg" alt="Foto Saya" class="rounded-full mx-auto mb-4">
+            <h2 class="text-4xl font-semibold mb-5">Hallo!! I'am Haikal Aditama</h2>
+            <!-- <img src="https://i.imgur.com/8Q6QX6B.jpg" alt="Foto Saya" class="rounded-full mx-auto mb-4"> -->
             <p class="text-gray-700">Saya Adalah Mahasiswa jurusan Teknik Informatika Yang sedang menempuh pendidikan universitas Logistik dan Bisnis Internasional</p>
         </section>
 
